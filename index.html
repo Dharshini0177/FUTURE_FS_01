@@ -1,0 +1,1536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Dharshini Korada | Aspiring Software Developer</title>
+
+  <meta
+    name="description"
+    content="Portfolio of Dharshini Korada, an aspiring software developer building web applications while strengthening problem-solving through Data Structures and Algorithms."
+  />
+  <meta name="author" content="Dharshini Korada" />
+
+  <meta property="og:title" content="Dharshini Korada | Portfolio" />
+  <meta
+    property="og:description"
+    content="Aspiring Software Developer learning C++, HTML, CSS, and Data Structures & Algorithms."
+  />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --bg-soft: #eef4ff;
+      --surface: rgba(255, 255, 255, 0.82);
+      --surface-solid: #ffffff;
+      --text: #172033;
+      --muted: #64748b;
+      --muted-light: #94a3b8;
+      --border: rgba(148, 163, 184, 0.26);
+      --primary: #2563eb;
+      --secondary: #7c3aed;
+      --accent: #0ea5e9;
+      --gradient: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+      --gradient-soft: linear-gradient(135deg, rgba(37, 99, 235, 0.12), rgba(124, 58, 237, 0.12));
+      --shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
+      --shadow-soft: 0 12px 28px rgba(15, 23, 42, 0.06);
+      --radius-lg: 28px;
+      --radius-md: 20px;
+      --radius-sm: 14px;
+      --container: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.12), transparent 32rem),
+        radial-gradient(circle at top right, rgba(124, 58, 237, 0.1), transparent 34rem),
+        linear-gradient(180deg, #f8fafc 0%, #f6f8fc 48%, #ffffff 100%);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img,
+    svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea {
+      font-family: inherit;
+    }
+
+    .container {
+      width: min(100% - 40px, var(--container));
+      margin-inline: auto;
+    }
+
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+      background: rgba(248, 250, 252, 0.78);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .navbar {
+      height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.03em;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 15px;
+      background: var(--gradient);
+      color: #ffffff;
+      font-size: 0.95rem;
+      font-weight: 900;
+      box-shadow: 0 12px 26px rgba(37, 99, 235, 0.24);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+    }
+
+    .brand-name {
+      font-size: 0.98rem;
+    }
+
+    .brand-role {
+      font-size: 0.75rem;
+      color: var(--muted);
+      font-weight: 600;
+      letter-spacing: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      list-style: none;
+    }
+
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 0 14px;
+      border-radius: 999px;
+      color: #475569;
+      font-size: 0.9rem;
+      font-weight: 650;
+      transition: 0.22s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--primary);
+      background: rgba(37, 99, 235, 0.08);
+    }
+
+    .mobile-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.78);
+      cursor: pointer;
+      color: var(--text);
+    }
+
+    .mobile-toggle span {
+      display: block;
+      width: 18px;
+      height: 2px;
+      margin: 4px auto;
+      border-radius: 999px;
+      background: currentColor;
+      transition: 0.2s ease;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 0 78px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+      align-items: center;
+      gap: 56px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      width: fit-content;
+      padding: 8px 13px;
+      margin-bottom: 22px;
+      border: 1px solid rgba(37, 99, 235, 0.16);
+      border-radius: 999px;
+      background: rgba(37, 99, 235, 0.07);
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-weight: 750;
+      letter-spacing: 0.02em;
+    }
+
+    .eyebrow-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gradient);
+      box-shadow: 0 0 0 5px rgba(37, 99, 235, 0.12);
+    }
+
+    .hero h1 {
+      max-width: 760px;
+      color: var(--text);
+      font-size: clamp(3.2rem, 8vw, 6.4rem);
+      line-height: 0.93;
+      letter-spacing: -0.075em;
+      font-weight: 900;
+      margin-bottom: 20px;
+    }
+
+    .gradient-text {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-role {
+      margin-bottom: 20px;
+      color: var(--primary);
+      font-size: clamp(1.3rem, 2.3vw, 2rem);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+    }
+
+    .hero-tagline {
+      max-width: 680px;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.6vw, 1.18rem);
+      line-height: 1.85;
+      margin-bottom: 32px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 42px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 0 22px;
+      border-radius: 15px;
+      border: 1px solid transparent;
+      font-weight: 800;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease, border-color 0.22s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px) scale(1.015);
+    }
+
+    .btn-primary {
+      color: #ffffff;
+      background: var(--gradient);
+      box-shadow: 0 18px 34px rgba(37, 99, 235, 0.24);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 22px 42px rgba(37, 99, 235, 0.28);
+    }
+
+    .btn-secondary {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.82);
+      border-color: var(--border);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(37, 99, 235, 0.22);
+      background: #ffffff;
+    }
+
+    .hero-points {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      max-width: 740px;
+    }
+
+    .point-card,
+    .card,
+    .project-card,
+    .timeline-card,
+    .contact-card {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: var(--radius-md);
+      transition: transform 0.24s ease, box-shadow 0.24s ease, border-color 0.24s ease;
+    }
+
+    .point-card {
+      padding: 18px;
+    }
+
+    .point-card:hover,
+    .card:hover,
+    .project-card:hover,
+    .timeline-card:hover,
+    .contact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+      border-color: rgba(37, 99, 235, 0.22);
+    }
+
+    .point-icon,
+    .card-icon,
+    .timeline-icon,
+    .contact-icon {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 15px;
+      background: var(--gradient-soft);
+      color: var(--primary);
+      margin-bottom: 13px;
+    }
+
+    .point-card p {
+      color: #334155;
+      font-size: 0.92rem;
+      font-weight: 650;
+      line-height: 1.55;
+    }
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .profile-card {
+      position: relative;
+      padding: 28px;
+      border: 1px solid rgba(148, 163, 184, 0.28);
+      border-radius: 34px;
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.72)),
+        var(--gradient-soft);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .profile-card::before {
+      content: "";
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      right: -92px;
+      top: -92px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(124, 58, 237, 0.18), transparent 68%);
+    }
+
+    .profile-card::after {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      left: -95px;
+      bottom: -105px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(14, 165, 233, 0.17), transparent 68%);
+    }
+
+    .profile-inner {
+      position: relative;
+      z-index: 1;
+      min-height: 390px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .profile-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .status-pill {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .avatar {
+      width: 124px;
+      height: 124px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto;
+      border-radius: 36px;
+      background: var(--gradient);
+      color: #ffffff;
+      font-size: 2.4rem;
+      font-weight: 900;
+      letter-spacing: -0.08em;
+      box-shadow: 0 28px 50px rgba(37, 99, 235, 0.25);
+      transform: rotate(-3deg);
+    }
+
+    .focus-stack {
+      display: grid;
+      gap: 14px;
+    }
+
+    .focus-item {
+      padding: 16px;
+      border: 1px solid rgba(148, 163, 184, 0.24);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.78);
+      box-shadow: 0 10px 22px rgba(15, 23, 42, 0.045);
+    }
+
+    .focus-item:nth-child(2) {
+      margin-left: 34px;
+    }
+
+    .focus-label {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .focus-item strong {
+      color: var(--text);
+      font-size: 0.96rem;
+      line-height: 1.55;
+    }
+
+    .section {
+      padding: 96px 0;
+      scroll-margin-top: 88px;
+    }
+
+    .section-header {
+      max-width: 760px;
+      margin-bottom: 44px;
+    }
+
+    .section-kicker {
+      display: inline-flex;
+      margin-bottom: 13px;
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      color: var(--text);
+      font-size: clamp(2rem, 4.2vw, 3.3rem);
+      line-height: 1.06;
+      letter-spacing: -0.06em;
+      font-weight: 900;
+      margin-bottom: 16px;
+    }
+
+    .section-description {
+      color: var(--muted);
+      font-size: 1.02rem;
+      line-height: 1.85;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      padding: 26px;
+    }
+
+    .card h3 {
+      color: var(--text);
+      font-size: 1.08rem;
+      line-height: 1.3;
+      font-weight: 850;
+      letter-spacing: -0.025em;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    .skills-layout {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .skill-pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0 13px;
+      border-radius: 999px;
+      border: 1px solid rgba(37, 99, 235, 0.14);
+      background: rgba(37, 99, 235, 0.065);
+      color: #1d4ed8;
+      font-size: 0.86rem;
+      font-weight: 750;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 335px;
+      padding: 28px;
+    }
+
+    .project-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .project-number {
+      width: 48px;
+      height: 48px;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      border-radius: 17px;
+      background: var(--gradient);
+      color: #ffffff;
+      font-size: 0.95rem;
+      font-weight: 900;
+      box-shadow: 0 14px 28px rgba(37, 99, 235, 0.22);
+    }
+
+    .project-card h3 {
+      color: var(--text);
+      font-size: 1.35rem;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .project-card p {
+      flex: 1;
+      color: var(--muted);
+      font-size: 0.96rem;
+      line-height: 1.85;
+      margin-bottom: 20px;
+    }
+
+    .tech-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-bottom: 24px;
+    }
+
+    .tech-tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 0 11px;
+      border-radius: 999px;
+      border: 1px solid rgba(124, 58, 237, 0.14);
+      background: rgba(124, 58, 237, 0.07);
+      color: #6d28d9;
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .project-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: auto;
+    }
+
+    .small-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 42px;
+      padding: 0 15px;
+      border-radius: 13px;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      color: #334155;
+      font-size: 0.88rem;
+      font-weight: 800;
+      transition: 0.22s ease;
+    }
+
+    .small-link:hover {
+      transform: translateY(-2px);
+      border-color: rgba(37, 99, 235, 0.26);
+      color: var(--primary);
+      box-shadow: 0 12px 24px rgba(15, 23, 42, 0.07);
+    }
+
+    .learning-wrap {
+      position: relative;
+      display: grid;
+      gap: 18px;
+      max-width: 900px;
+    }
+
+    .timeline-card {
+      position: relative;
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 18px;
+      padding: 24px;
+    }
+
+    .timeline-card h3 {
+      color: var(--text);
+      font-size: 1.08rem;
+      font-weight: 900;
+      letter-spacing: -0.025em;
+      margin-bottom: 7px;
+    }
+
+    .timeline-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.75;
+    }
+
+    .timeline-icon {
+      margin-bottom: 0;
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.95fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .contact-panel {
+      padding: 34px;
+      border-radius: var(--radius-lg);
+      background:
+        linear-gradient(135deg, rgba(37, 99, 235, 0.09), rgba(124, 58, 237, 0.1)),
+        rgba(255, 255, 255, 0.82);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .contact-panel h3 {
+      color: var(--text);
+      font-size: 1.7rem;
+      line-height: 1.15;
+      letter-spacing: -0.05em;
+      font-weight: 900;
+      margin-bottom: 14px;
+    }
+
+    .contact-panel p {
+      color: var(--muted);
+      line-height: 1.85;
+      margin-bottom: 24px;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .contact-card {
+      padding: 22px;
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .contact-card h4 {
+      color: var(--text);
+      font-size: 0.98rem;
+      font-weight: 850;
+      margin-bottom: 2px;
+    }
+
+    .contact-card a,
+    .contact-card p {
+      color: var(--muted);
+      font-size: 0.94rem;
+      line-height: 1.6;
+      word-break: break-word;
+      transition: color 0.2s ease;
+    }
+
+    .contact-card a:hover {
+      color: var(--primary);
+    }
+
+    .site-footer {
+      padding: 32px 0;
+      border-top: 1px solid rgba(148, 163, 184, 0.18);
+      background: rgba(255, 255, 255, 0.52);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .footer-links a {
+      font-weight: 750;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid,
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 118px;
+      }
+
+      .hero-visual {
+        max-width: 620px;
+      }
+
+      .hero-points,
+      .about-grid,
+      .skills-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .mobile-toggle {
+        display: inline-block;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 20px;
+        right: 20px;
+        display: grid;
+        gap: 6px;
+        padding: 12px;
+        border: 1px solid var(--border);
+        border-radius: 22px;
+        background: rgba(255, 255, 255, 0.96);
+        box-shadow: var(--shadow);
+        transform: translateY(-10px);
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.2s ease;
+      }
+
+      .nav-links.open {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .nav-link {
+        width: 100%;
+        justify-content: flex-start;
+        padding: 0 16px;
+      }
+
+      .mobile-toggle.active span:nth-child(1) {
+        transform: translateY(6px) rotate(45deg);
+      }
+
+      .mobile-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .mobile-toggle.active span:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(100% - 28px, var(--container));
+      }
+
+      .navbar {
+        height: 68px;
+      }
+
+      .brand-role {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 112px 0 58px;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.75rem, 18vw, 4.4rem);
+      }
+
+      .hero-actions,
+      .contact-actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .point-card,
+      .card,
+      .project-card,
+      .timeline-card,
+      .contact-panel {
+        border-radius: 20px;
+      }
+
+      .profile-card {
+        padding: 20px;
+        border-radius: 26px;
+      }
+
+      .profile-inner {
+        min-height: 360px;
+      }
+
+      .avatar {
+        width: 104px;
+        height: 104px;
+        border-radius: 30px;
+      }
+
+      .focus-item:nth-child(2) {
+        margin-left: 0;
+      }
+
+      .section {
+        padding: 72px 0;
+      }
+
+      .project-top {
+        flex-direction: column-reverse;
+      }
+
+      .timeline-card {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-card {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-icon {
+        margin-bottom: 0;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Main navigation">
+      <a href="#home" class="brand" aria-label="Go to home section">
+        <span class="brand-mark">DK</span>
+        <span class="brand-text">
+          <span class="brand-name">Dharshini Korada</span>
+          <span class="brand-role">Aspiring Software Developer</span>
+        </span>
+      </a>
+
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a class="nav-link active" href="#home">Home</a></li>
+        <li><a class="nav-link" href="#about">About</a></li>
+        <li><a class="nav-link" href="#skills">Skills</a></li>
+        <li><a class="nav-link" href="#projects">Projects</a></li>
+        <li><a class="nav-link" href="#learning">Learning</a></li>
+        <li><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            Personal Portfolio
+          </div>
+
+          <h1>
+            Dharshini <span class="gradient-text">Korada</span>
+          </h1>
+
+          <p class="hero-role">Aspiring Software Developer</p>
+
+          <p class="hero-tagline">
+            Building web applications while strengthening problem-solving through
+            Data Structures & Algorithms.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">
+              View Projects
+              <span aria-hidden="true">→</span>
+            </a>
+
+            <a href="#contact" class="btn btn-secondary">
+              Contact Me
+              <span aria-hidden="true">✉</span>
+            </a>
+          </div>
+
+          <div class="hero-points">
+            <div class="point-card">
+              <div class="point-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                  <path d="M16 18L22 12L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M8 6L2 12L8 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <p>Learning C++ and web development fundamentals</p>
+            </div>
+
+            <div class="point-card">
+              <div class="point-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                  <path d="M22 10V6C22 5.45 21.55 5 21 5H3C2.45 5 2 5.45 2 6V18C2 18.55 2.45 19 3 19H21C21.55 19 22 18.55 22 18V14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M6 9H13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M6 13H11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M17 12H22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <p>2nd year B.Tech Information Technology student</p>
+            </div>
+
+            <div class="point-card">
+              <div class="point-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 3L20 7.5V16.5L12 21L4 16.5V7.5L12 3Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                  <path d="M12 12L20 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M12 12V21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M12 12L4 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <p>Building real-world projects to improve steadily</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="profile-card">
+            <div class="profile-inner">
+              <div class="profile-top">
+                <span class="status-pill">Currently focused on</span>
+                <span class="status-pill">2026</span>
+              </div>
+
+              <div class="avatar" aria-label="Dharshini Korada initials">DK</div>
+
+              <div class="focus-stack">
+                <div class="focus-item">
+                  <span class="focus-label">Core Skill</span>
+                  <strong>Data Structures & Algorithms in C++</strong>
+                </div>
+
+                <div class="focus-item">
+                  <span class="focus-label">Development</span>
+                  <strong>Responsive web pages with HTML, CSS, and modern layouts</strong>
+                </div>
+
+                <div class="focus-item">
+                  <span class="focus-label">Goal</span>
+                  <strong>Grow into a confident Software Development Engineer</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-kicker">About</span>
+          <h2 class="section-title">A focused beginner building strong foundations.</h2>
+          <p class="section-description">
+            I am a 2nd year B.Tech IT student currently working toward becoming a
+            Software Development Engineer. I am learning C++, HTML, and CSS, and
+            actively building real-world projects. Alongside development, I am also
+            focusing on improving my problem-solving skills through Data Structures
+            & Algorithms.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <article class="card reveal">
+            <div class="card-icon" aria-hidden="true">
+              <svg width="23" height="23" viewBox="0 0 24 24" fill="none">
+                <path d="M20 21C20 17.7 16.4 15 12 15C7.6 15 4 17.7 4 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M12 12C14.2 12 16 10.2 16 8C16 5.8 14.2 4 12 4C9.8 4 8 5.8 8 8C8 10.2 9.8 12 12 12Z" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+            <h3>Who I Am</h3>
+            <p>
+              I enjoy turning ideas into simple, useful web pages. I am learning by
+              practicing consistently and improving one step at a time.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-icon" aria-hidden="true">
+              <svg width="23" height="23" viewBox="0 0 24 24" fill="none">
+                <path d="M22 10L12 5L2 10L12 15L22 10Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                <path d="M6 12V17C8 19 10 20 12 20C14 20 16 19 18 17V12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Education</h3>
+            <p>
+              I am currently pursuing B.Tech in Information Technology and using my
+              academic journey to build both technical and problem-solving skills.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-icon" aria-hidden="true">
+              <svg width="23" height="23" viewBox="0 0 24 24" fill="none">
+                <path d="M12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22Z" stroke="currentColor" stroke-width="2"/>
+                <path d="M12 16L16 12L12 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8 12H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Career Goal</h3>
+            <p>
+              My goal is to become a Software Development Engineer by learning
+              fundamentals, writing cleaner code, and building practical projects.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-kicker">Skills</span>
+          <h2 class="section-title">Tools and concepts I am learning.</h2>
+          <p class="section-description">
+            I am focusing on programming fundamentals first, then applying them
+            through web development, version control, and project-based practice.
+          </p>
+        </div>
+
+        <div class="skills-layout">
+          <article class="card reveal">
+            <div class="card-icon" aria-hidden="true">
+              <svg width="23" height="23" viewBox="0 0 24 24" fill="none">
+                <path d="M16 18L22 12L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8 6L2 12L8 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Languages</h3>
+            <p>Core languages and markup skills I use while learning and building.</p>
+            <div class="skill-list">
+              <span class="skill-pill">C</span>
+              <span class="skill-pill">C++</span>
+              <span class="skill-pill">HTML</span>
+              <span class="skill-pill">CSS</span>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-icon" aria-hidden="true">
+              <svg width="23" height="23" viewBox="0 0 24 24" fill="none">
+                <path d="M6 3V15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M18 9V21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M6 15C7.66 15 9 16.34 9 18C9 19.66 7.66 21 6 21C4.34 21 3 19.66 3 18C3 16.34 4.34 15 6 15Z" stroke="currentColor" stroke-width="2"/>
+                <path d="M18 3C19.66 3 21 4.34 21 6C21 7.66 19.66 9 18 9C16.34 9 15 7.66 15 6C15 4.34 16.34 3 18 3Z" stroke="currentColor" stroke-width="2"/>
+                <path d="M9 18H12C15.31 18 18 15.31 18 12V9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Tools</h3>
+            <p>Tools I use to manage code and build a better development workflow.</p>
+            <div class="skill-list">
+              <span class="skill-pill">Git</span>
+              <span class="skill-pill">GitHub</span>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-icon" aria-hidden="true">
+              <svg width="23" height="23" viewBox="0 0 24 24" fill="none">
+                <path d="M9 3H15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M10 21H14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M8 8C8 5.79 9.79 4 12 4C14.21 4 16 5.79 16 8C16 9.66 15.04 10.53 14.12 11.36C13.3 12.1 12.5 12.82 12.5 14H11.5C11.5 12.36 12.48 11.47 13.37 10.66C14.21 9.9 15 9.18 15 8C15 6.34 13.66 5 12 5C10.34 5 9 6.34 9 8H8Z" fill="currentColor"/>
+                <path d="M12 17H12.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Core Concepts</h3>
+            <p>Problem-solving topics I am practicing to improve logic and confidence.</p>
+            <div class="skill-list">
+              <span class="skill-pill">Data Structures</span>
+              <span class="skill-pill">Algorithms</span>
+              <span class="skill-pill">Problem Solving</span>
+              <span class="skill-pill">Learning</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-kicker">Projects</span>
+          <h2 class="section-title">Practical work and experiments.</h2>
+          <p class="section-description">
+            These projects show how I am applying what I learn through interfaces,
+            layouts, routing ideas, and practical problem-solving.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card reveal">
+            <div class="project-top">
+              <div>
+                <h3>Campus Navigator</h3>
+              </div>
+              <span class="project-number">01</span>
+            </div>
+
+            <p>
+              A web application that helps users navigate inside a college campus
+              by showing routes between important locations. The project focuses on
+              making campus movement easier and more understandable for students.
+            </p>
+
+            <div class="tech-list">
+              <span class="tech-tag">Leaflet</span>
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">HTML</span>
+              <span class="tech-tag">Tailwind CSS</span>
+            </div>
+
+            <div class="project-actions">
+              <a class="small-link" href="https://github.com/Dharshini0177" target="_blank" rel="noopener noreferrer">
+                GitHub
+                <span aria-hidden="true">↗</span>
+              </a>
+              <a class="small-link" href="#" aria-label="Live demo placeholder">
+                Live Demo
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-top">
+              <div>
+                <h3>Personal Portfolio</h3>
+              </div>
+              <span class="project-number">02</span>
+            </div>
+
+            <p>
+              A clean portfolio website created to present my learning journey,
+              projects, skills, and contact details in one professional place.
+              It helps me practice layout design, responsive styling, and clear content structure.
+            </p>
+
+            <div class="tech-list">
+              <span class="tech-tag">HTML</span>
+              <span class="tech-tag">CSS</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">Responsive Design</span>
+            </div>
+
+            <div class="project-actions">
+              <a class="small-link" href="https://github.com/Dharshini0177" target="_blank" rel="noopener noreferrer">
+                GitHub
+                <span aria-hidden="true">↗</span>
+              </a>
+              <a class="small-link" href="#" aria-label="Live demo placeholder">
+                Live Demo
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="learning">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-kicker">Learning Journey</span>
+          <h2 class="section-title">How I am growing as a developer.</h2>
+          <p class="section-description">
+            My current focus is building a strong foundation, practicing
+            consistently, and using projects to turn learning into experience.
+          </p>
+        </div>
+
+        <div class="learning-wrap">
+          <article class="timeline-card reveal">
+            <div class="timeline-icon" aria-hidden="true">
+              <svg width="23" height="23" viewBox="0 0 24 24" fill="none">
+                <path d="M4 19.5C4 18.12 5.12 17 6.5 17H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M6.5 2H20V22H6.5C5.12 22 4 20.88 4 19.5V4.5C4 3.12 5.12 2 6.5 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <h3>Learning Data Structures & Algorithms</h3>
+              <p>
+                I am learning DSA in C++ step by step, starting with basics and
+                slowly moving toward stronger problem-solving patterns.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline-card reveal">
+            <div class="timeline-icon" aria-hidden="true">
+              <svg width="23" height="23" viewBox="0 0 24 24" fill="none">
+                <path d="M9 18H5C3.9 18 3 17.1 3 16V6C3 4.9 3.9 4 5 4H19C20.1 4 21 4.9 21 6V16C21 17.1 20.1 18 19 18H15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M8 22H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M12 18V22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <h3>Practicing Problem Solving</h3>
+              <p>
+                I practice coding problems to improve logic, understand patterns,
+                and become more confident with algorithms.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline-card reveal">
+            <div class="timeline-icon" aria-hidden="true">
+              <svg width="23" height="23" viewBox="0 0 24 24" fill="none">
+                <path d="M5 16C3 15 2 13.5 2 11.5C2 9.29 3.79 7.5 6 7.5C6.58 4.95 8.84 3 11.5 3C14.66 3 17.24 5.47 17.47 8.58C20.04 8.91 22 11.1 22 13.75C22 16.65 19.65 19 16.75 19H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 13V21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M8 17L12 13L16 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <h3>Building Projects for Experience</h3>
+              <p>
+                I build small but useful projects to connect theory with practical
+                implementation and learn from real development challenges.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-kicker">Contact</span>
+          <h2 class="section-title">Let’s connect.</h2>
+          <p class="section-description">
+            I am open to learning opportunities, collaboration, and project
+            feedback. You can reach me by email or visit my GitHub profile.
+          </p>
+        </div>
+
+        <div class="contact-layout">
+          <div class="contact-panel reveal">
+            <h3>Have feedback or an opportunity?</h3>
+            <p>
+              I would be happy to connect, learn, and discuss projects or beginner-friendly
+              development opportunities.
+            </p>
+
+            <div class="contact-actions">
+              <a class="btn btn-primary" href="mailto:dharshinikorada@gmail.com">
+                Send Email
+                <span aria-hidden="true">✉</span>
+              </a>
+
+              <a class="btn btn-secondary" href="https://github.com/Dharshini0177" target="_blank" rel="noopener noreferrer">
+                View GitHub
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-list">
+            <article class="contact-card reveal">
+              <div class="contact-icon" aria-hidden="true">
+                <svg width="23" height="23" viewBox="0 0 24 24" fill="none">
+                  <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                  <path d="M22 6L12 13L2 6" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div>
+                <h4>Email</h4>
+                <a href="mailto:dharshinikorada@gmail.com">dharshinikorada@gmail.com</a>
+              </div>
+            </article>
+
+            <article class="contact-card reveal">
+              <div class="contact-icon" aria-hidden="true">
+                <svg width="23" height="23" viewBox="0 0 24 24" fill="none">
+                  <path d="M9 19C4.7 20.4 4.7 16.8 3 16.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M15 22V18.7C15 17.7 15.1 17.3 14.5 16.7C17.3 16.4 20 15.3 20 10.7C20 9.5 19.5 8.4 18.8 7.5C18.9 6.5 18.7 5.4 18.4 4.5C18.4 4.5 17.4 4.2 15 5.7C13 5.2 11 5.2 9 5.7C6.6 4.2 5.6 4.5 5.6 4.5C5.3 5.4 5.1 6.5 5.2 7.5C4.5 8.4 4 9.5 4 10.7C4 15.3 6.7 16.4 9.5 16.7C8.9 17.3 8.8 17.9 9 18.7V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div>
+                <h4>GitHub</h4>
+                <a href="https://github.com/Dharshini0177" target="_blank" rel="noopener noreferrer">
+                  github.com/Dharshini0177
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Dharshini Korada. All rights reserved.</p>
+
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="mailto:dharshinikorada@gmail.com">Email</a>
+        <a href="https://github.com/Dharshini0177" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const yearElement = document.getElementById("year");
+    yearElement.textContent = new Date().getFullYear();
+
+    const mobileToggle = document.getElementById("mobileToggle");
+    const navLinks = document.getElementById("navLinks");
+    const navItems = document.querySelectorAll(".nav-link");
+
+    mobileToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      mobileToggle.classList.toggle("active", isOpen);
+      mobileToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    navItems.forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        mobileToggle.classList.remove("active");
+        mobileToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.13,
+        rootMargin: "0px 0px -40px 0px"
+      }
+    );
+
+    revealElements.forEach((element, index) => {
+      element.style.transitionDelay = `${Math.min(index % 4, 3) * 70}ms`;
+      revealObserver.observe(element);
+    });
+
+    const sections = document.querySelectorAll("section[id]");
+
+    const activeSectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute("id");
+
+            navItems.forEach((link) => {
+              link.classList.toggle(
+                "active",
+                link.getAttribute("href") === `#${id}`
+              );
+            });
+          }
+        });
+      },
+      {
+        threshold: 0.42
+      }
+    );
+
+    sections.forEach((section) => {
+      activeSectionObserver.observe(section);
+    });
+  </script>
+</body>
+</html>
